@@ -453,3 +453,212 @@ void levelEntryText()
 }
 
 }
+
+// DLL Export wrappers
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+__declspec(dllexport) void __cdecl d2glGameDrawBegin()
+{
+	d2gl::d2::gameDrawBegin();
+}
+
+__declspec(dllexport) void __cdecl d2glAutomapDrawBegin()
+{
+	d2gl::d2::automapDrawBegin();
+}
+
+__declspec(dllexport) void __cdecl d2glAutomapDrawEnd()
+{
+	d2gl::d2::automapDrawEnd();
+}
+
+__declspec(dllexport) void __cdecl d2glUIDrawBegin()
+{
+	d2gl::d2::uiDrawBegin();
+}
+
+__declspec(dllexport) void __cdecl d2glUIDrawCursorItem()
+{
+	d2gl::d2::uiDrawCursorItem();
+}
+
+__declspec(dllexport) void __cdecl d2glUIDrawEnd()
+{
+	d2gl::d2::uiDrawEnd();
+}
+
+__declspec(dllexport) void __cdecl d2glDrawImage(void* cell, int x, int y, uint32_t gamma, int draw_mode, uint8_t* palette)
+{
+	d2gl::d2::drawImageHooked((d2gl::d2::CellContext*)cell, x, y, gamma, draw_mode, palette);
+}
+
+__declspec(dllexport) void __cdecl d2glDrawPerspectiveImage(void* cell, int x, int y, uint32_t gamma, int draw_mode, int screen_mode, uint8_t* palette)
+{
+	d2gl::d2::drawPerspectiveImageHooked((d2gl::d2::CellContext*)cell, x, y, gamma, draw_mode, screen_mode, palette);
+}
+
+__declspec(dllexport) void __cdecl d2glDrawShiftedImage(void* cell, int x, int y, uint32_t gamma, int draw_mode, int global_palette_shift)
+{
+	d2gl::d2::drawShiftedImageHooked((d2gl::d2::CellContext*)cell, x, y, gamma, draw_mode, global_palette_shift);
+}
+
+__declspec(dllexport) void __cdecl d2glDrawVerticalCropImage(void* cell, int x, int y, int skip_lines, int draw_lines, int draw_mode)
+{
+	d2gl::d2::drawVerticalCropImageHooked((d2gl::d2::CellContext*)cell, x, y, skip_lines, draw_lines, draw_mode);
+}
+
+__declspec(dllexport) void __cdecl d2glDrawClippedImage(void* cell, int x, int y, void* crop_rect, int draw_mode)
+{
+	d2gl::d2::drawClippedImageHooked((d2gl::d2::CellContext*)cell, x, y, crop_rect, draw_mode);
+}
+
+__declspec(dllexport) void __cdecl d2glDrawImageFast(void* cell, int x, int y, uint8_t palette_index)
+{
+	d2gl::d2::drawImageFastHooked((d2gl::d2::CellContext*)cell, x, y, palette_index);
+}
+
+__declspec(dllexport) void __cdecl d2glDrawShadow(void* cell, int x, int y)
+{
+	d2gl::d2::drawShadowHooked((d2gl::d2::CellContext*)cell, x, y);
+}
+
+__declspec(dllexport) void __cdecl d2glDrawSolidRectEx(int left, int top, int right, int bottom, uint32_t color, int draw_mode)
+{
+	d2gl::d2::drawSolidRectExHooked(left, top, right, bottom, color, draw_mode);
+}
+
+__declspec(dllexport) void __cdecl d2glDrawLine(int x_start, int y_start, int x_end, int y_end, uint8_t color, uint8_t alpha)
+{
+	d2gl::d2::drawLineHooked(x_start, y_start, x_end, y_end, color, alpha);
+}
+
+__declspec(dllexport) int __cdecl d2glDrawGroundTile(void* tile, void* light, int x, int y, int world_x, int world_y, uint8_t alpha, int screen_panels, int tile_data)
+{
+	return d2gl::d2::drawGroundTileHooked((d2gl::d2::TileContext*)tile, (d2gl::d2::GFXLight*)light, x, y, world_x, world_y, alpha, screen_panels, (bool)tile_data);
+}
+
+__declspec(dllexport) int __cdecl d2glDrawWallTile(void* tile, int x, int y, void* light, int screen_panels)
+{
+	return d2gl::d2::drawWallTileHooked((d2gl::d2::TileContext*)tile, x, y, (d2gl::d2::GFXLight*)light, screen_panels);
+}
+
+__declspec(dllexport) int __cdecl d2glDrawTransWallTile(void* tile, int x, int y, void* light, int screen_panels, uint8_t alpha)
+{
+	return d2gl::d2::drawTransWallTileHooked((d2gl::d2::TileContext*)tile, x, y, (d2gl::d2::GFXLight*)light, screen_panels, alpha);
+}
+
+__declspec(dllexport) int __cdecl d2glDrawShadowTile(void* tile, int x, int y, int draw_mode, int screen_panels)
+{
+	return d2gl::d2::drawShadowTileHooked((d2gl::d2::TileContext*)tile, x, y, draw_mode, screen_panels);
+}
+
+__declspec(dllexport) void __cdecl d2glTakeScreenShot()
+{
+	d2gl::d2::takeScreenShotHooked();
+}
+
+__declspec(dllexport) void __cdecl d2glDrawNormalText(const wchar_t* str, int x, int y, uint32_t color, uint32_t centered)
+{
+	d2gl::d2::drawNormalTextHooked(str, x, y, color, centered);
+}
+
+__declspec(dllexport) void __cdecl d2glDrawNormalTextEx(const wchar_t* str, int x, int y, uint32_t color, uint32_t centered, uint32_t trans_lvl)
+{
+	d2gl::d2::drawNormalTextExHooked(str, x, y, color, centered, trans_lvl);
+}
+
+__declspec(dllexport) void __cdecl d2glDrawFramedText(const wchar_t* str, int x, int y, uint32_t color, uint32_t centered)
+{
+	d2gl::d2::drawFramedTextHooked(str, x, y, color, centered);
+}
+
+__declspec(dllexport) void __cdecl d2glDrawRectangledText(const wchar_t* str, int x, int y, uint32_t rect_color, uint32_t rect_transparency, uint32_t color)
+{
+	d2gl::d2::drawRectangledTextHooked(str, x, y, rect_color, rect_transparency, color);
+}
+
+__declspec(dllexport) uint32_t __cdecl d2glGetNormalTextWidth(const wchar_t* str)
+{
+	return d2gl::d2::getNormalTextWidthHooked(str);
+}
+
+__declspec(dllexport) uint32_t __cdecl d2glGetNormalTextNWidth(const wchar_t* str, const int n_chars)
+{
+	return d2gl::d2::getNormalTextNWidthHooked(str, n_chars);
+}
+
+__declspec(dllexport) uint32_t __cdecl d2glGetFramedTextSize(const wchar_t* str, uint32_t* width, uint32_t* height)
+{
+	return d2gl::d2::getFramedTextSizeHooked(str, width, height);
+}
+
+__declspec(dllexport) uint16_t __cdecl d2glGetFontHeight()
+{
+	return d2gl::d2::getFontHeightHooked();
+}
+
+__declspec(dllexport) uint32_t __cdecl d2glSetTextSize(uint32_t dwSize)
+{
+	return d2gl::d2::setTextSizeHooked(dwSize);
+}
+
+__declspec(dllexport) void __cdecl d2glRectangledTextBegin()
+{
+	d2gl::d2::rectangledTextBegin();
+}
+
+__declspec(dllexport) void __cdecl d2glRectangledTextEnd()
+{
+	d2gl::d2::rectangledTextEnd();
+}
+
+__declspec(dllexport) void __cdecl d2glUnitHoverText()
+{
+	d2gl::d2::unitHoverText();
+}
+
+__declspec(dllexport) void __cdecl d2glAltItemsText()
+{
+	d2gl::d2::altItemsText();
+}
+
+__declspec(dllexport) void __cdecl d2glDrawRectFrame()
+{
+	d2gl::d2::drawRectFrame();
+}
+
+__declspec(dllexport) void __cdecl d2glDrawUnitHealthBar()
+{
+	d2gl::d2::drawUnitHealthBar();
+}
+
+__declspec(dllexport) void __cdecl d2glLoadUIImage()
+{
+	d2gl::d2::loadUIImage();
+}
+
+__declspec(dllexport) void __cdecl d2glDrawSubTextA()
+{
+	d2gl::d2::drawSubTextA();
+}
+
+__declspec(dllexport) void __cdecl d2glDrawSubTextB()
+{
+	d2gl::d2::drawSubTextB();
+}
+
+__declspec(dllexport) void __cdecl d2glDrawSubTextC()
+{
+	d2gl::d2::drawSubTextC();
+}
+
+__declspec(dllexport) void __cdecl d2glLevelEntryText()
+{
+	d2gl::d2::levelEntryText();
+}
+
+#ifdef __cplusplus
+}
+#endif

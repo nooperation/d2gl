@@ -838,7 +838,7 @@ void HDText::drawMonsterHealthBar(d2::UnitAny* unit)
 {
 	auto name = d2::getMonsterName(unit);
 	if (!name || wcslen(name) <= 0) {
-		static wchar_t name_str[50] = { 0 };
+		static wchar_t name_str[256] = { 0 };
 		wcscpy_s(name_str, d2::hovered_monster_name);
 		const auto len = wcslen(name_str);
 		if (len <= 0)

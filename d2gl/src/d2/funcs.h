@@ -96,3 +96,57 @@ void drawSubTextC();
 void levelEntryText();
 
 }
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+// Exported functions for external calling
+__declspec(dllexport) void __cdecl d2glGameDrawBegin();
+__declspec(dllexport) void __cdecl d2glAutomapDrawBegin();
+__declspec(dllexport) void __cdecl d2glAutomapDrawEnd();
+__declspec(dllexport) void __cdecl d2glUIDrawBegin();
+__declspec(dllexport) void __cdecl d2glUIDrawCursorItem();
+__declspec(dllexport) void __cdecl d2glUIDrawEnd();
+
+__declspec(dllexport) void __cdecl d2glDrawImage(void* cell, int x, int y, uint32_t gamma, int draw_mode, uint8_t* palette);
+__declspec(dllexport) void __cdecl d2glDrawPerspectiveImage(void* cell, int x, int y, uint32_t gamma, int draw_mode, int screen_mode, uint8_t* palette);
+__declspec(dllexport) void __cdecl d2glDrawShiftedImage(void* cell, int x, int y, uint32_t gamma, int draw_mode, int global_palette_shift);
+__declspec(dllexport) void __cdecl d2glDrawVerticalCropImage(void* cell, int x, int y, int skip_lines, int draw_lines, int draw_mode);
+__declspec(dllexport) void __cdecl d2glDrawClippedImage(void* cell, int x, int y, void* crop_rect, int draw_mode);
+__declspec(dllexport) void __cdecl d2glDrawImageFast(void* cell, int x, int y, uint8_t palette_index);
+__declspec(dllexport) void __cdecl d2glDrawShadow(void* cell, int x, int y);
+__declspec(dllexport) void __cdecl d2glDrawSolidRectEx(int left, int top, int right, int bottom, uint32_t color, int draw_mode);
+__declspec(dllexport) void __cdecl d2glDrawLine(int x_start, int y_start, int x_end, int y_end, uint8_t color, uint8_t alpha);
+__declspec(dllexport) int __cdecl d2glDrawGroundTile(void* tile, void* light, int x, int y, int world_x, int world_y, uint8_t alpha, int screen_panels, int tile_data);
+__declspec(dllexport) int __cdecl d2glDrawWallTile(void* tile, int x, int y, void* light, int screen_panels);
+__declspec(dllexport) int __cdecl d2glDrawTransWallTile(void* tile, int x, int y, void* light, int screen_panels, uint8_t alpha);
+__declspec(dllexport) int __cdecl d2glDrawShadowTile(void* tile, int x, int y, int draw_mode, int screen_panels);
+
+__declspec(dllexport) void __cdecl d2glTakeScreenShot();
+__declspec(dllexport) void __cdecl d2glDrawNormalText(const wchar_t* str, int x, int y, uint32_t color, uint32_t centered);
+__declspec(dllexport) void __cdecl d2glDrawNormalTextEx(const wchar_t* str, int x, int y, uint32_t color, uint32_t centered, uint32_t trans_lvl);
+__declspec(dllexport) void __cdecl d2glDrawFramedText(const wchar_t* str, int x, int y, uint32_t color, uint32_t centered);
+__declspec(dllexport) void __cdecl d2glDrawRectangledText(const wchar_t* str, int x, int y, uint32_t rect_color, uint32_t rect_transparency, uint32_t color);
+__declspec(dllexport) uint32_t __cdecl d2glGetNormalTextWidth(const wchar_t* str);
+__declspec(dllexport) uint32_t __cdecl d2glGetNormalTextNWidth(const wchar_t* str, const int n_chars);
+__declspec(dllexport) uint32_t __cdecl d2glGetFramedTextSize(const wchar_t* str, uint32_t* width, uint32_t* height);
+__declspec(dllexport) uint16_t __cdecl d2glGetFontHeight();
+__declspec(dllexport) uint32_t __cdecl d2glSetTextSize(uint32_t dwSize);
+
+__declspec(dllexport) void __cdecl d2glRectangledTextBegin();
+__declspec(dllexport) void __cdecl d2glRectangledTextEnd();
+__declspec(dllexport) void __cdecl d2glUnitHoverText();
+__declspec(dllexport) void __cdecl d2glAltItemsText();
+__declspec(dllexport) void __cdecl d2glDrawRectFrame();
+__declspec(dllexport) void __cdecl d2glDrawUnitHealthBar();
+
+__declspec(dllexport) void __cdecl d2glLoadUIImage();
+__declspec(dllexport) void __cdecl d2glDrawSubTextA();
+__declspec(dllexport) void __cdecl d2glDrawSubTextB();
+__declspec(dllexport) void __cdecl d2glDrawSubTextC();
+__declspec(dllexport) void __cdecl d2glLevelEntryText();
+
+#ifdef __cplusplus
+}
+#endif
